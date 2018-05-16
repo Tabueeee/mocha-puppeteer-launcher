@@ -1,0 +1,7 @@
+{
+  "browserOptions": {
+    "headless": true,
+    "ignoreHTTPSErrors": true
+  },
+  "timeout": 25000
+}

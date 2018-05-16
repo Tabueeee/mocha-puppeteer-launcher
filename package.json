@@ -1,0 +1,67 @@
+{
+  "name": "mocha-puppeteer-launcher",
+  "version": "1.0.0",
+  "description": "launch puppeteer without any setup code",
+  "main": "build/src/index.js",
+  "author": "Tobias Nießen",
+  "license": "MIT",
+  "dependencies": {
+    "find-up": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "types": "types/index.d.ts",
+  "scripts": {
+    "prebuild": "node_modules/.bin/tslint --project tsconfig-lint.json",
+    "build": "node_modules/.bin/tsc -p tsconfig.json",
+    "postbuild": "node task/copyTestFakes",
+    "prebuild-dev": "npm run prebuild",
+    "build-dev": "node_modules/.bin/tsc -p tsconfig.json --sourcemap",
+    "post-build-dev": "node task/copyTestFakes",
+    "pretest": "npm run build",
+    "test": "node_modules/.bin/mocha --timeout 10000 build/test/**/*.spec.js",
+    "test-silent": "node_modules/.bin/mocha --timeout 10000 --require source-map-support/register build/test/isolation/*.spec.js > test.log",
+    "precoverage": "npm run build-dev",
+    "coverage": "node_modules/.bin/nyc --all --reporter=html npm run test-silent",
+    "precoverage-travis": "npm run build-dev",
+    "coverage-travis": "node_modules/.bin/nyc --all --reporter=text-lcov npm run test-silent | node node_modules/coveralls/bin/coveralls.js"
+  },
+  "devDependencies": {
+    "@types/find-up": "^2.1.1",
+    "@types/mocha": "^5.2.0",
+    "@types/node": "^10.0.6",
+    "@types/puppeteer": "^1.3.2",
+    "@types/sinon": "^4.3.3",
+    "coveralls": "^3.0.1",
+    "del": "^3.0.0",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.3",
+    "puppeteer": "^1.4.0",
+    "sinon": "^5.0.7",
+    "source-map-support": "^0.5.5",
+    "tslint": "^5.10.0",
+    "tslint-microsoft-contrib": "^5.0.3",
+    "typescript": "^2.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tabueeee/mocha-puppeteer-launcher.git"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": [
+      "build/src/**/*.js"
+    ],
+    "exclude": [
+      "**/interfaces/*.js"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
+  }
+}
