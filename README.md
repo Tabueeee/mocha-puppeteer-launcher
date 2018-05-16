@@ -1,5 +1,5 @@
 # mocha-puppeteer-launcher
-
+[![Build Status](https://travis-ci.org/Tabueeee/mocha-puppeteer-launcher.svg?branch=master)](https://travis-ci.org/Tabueeee/mocha-puppeteer-launcher)
 > write end-to-end tests with mocha and puppeteer without any setup code
 
 ## Install

@@ -1,24 +1,22 @@
 import {Options} from 'find-up';
 import {Browser, EmulateOptions, LaunchOptions, Page} from 'puppeteer';
 
-interface MplConfig {
-    browserOptions: LaunchOptions;
-    autoClose: boolean;
-    keepAlive: number;
-}
-
 declare global {
     export function newPage(options?: EmulateOptions): Promise<Page>;
 
     export function closeBrowser(keepAlive?: number): Promise<void>;
-
-    export const mplConfig: MplConfig;
 }
 
 declare module 'mocha-puppeteer-launcher' {
     export const config: MplConfig;
     export const browserLauncher: BrowserLauncher;
     export const register: () => void;
+
+    export interface MplConfig {
+        browserOptions: LaunchOptions;
+        autoClose: boolean;
+        keepAlive: number;
+    }
 
     interface PuppeteerModule {
         launch(options?: LaunchOptions): Promise<Browser>;
@@ -27,7 +25,6 @@ declare module 'mocha-puppeteer-launcher' {
     class BrowserLauncher {
         private browser;
         private puppeteerLoadedPromise;
-        private timer;
         private puppeteer;
 
         constructor(puppeteer: PuppeteerModule);
@@ -45,10 +42,6 @@ declare module 'mocha-puppeteer-launcher' {
         private close();
 
         private initialize(options);
-
-        private startTimeoutTimer(config, reject);
-
-        private stopTimeoutTimer();
     }
 
     class JsonReader {
