@@ -12,7 +12,7 @@ describe('ConfigResolver', () => {
     it('if no config is found, default config is loaded', () => {
         configResolver = new ConfigResolver([], (): null => null, <JsonReader> {});
 
-        assert.deepEqual(configResolver.getConfig(), {
+        assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: true,
                 ignoreHTTPSErrors: true   ,
@@ -30,7 +30,7 @@ describe('ConfigResolver', () => {
             }
         });
 
-        assert.deepEqual(configResolver.getConfig(), {
+        assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: true,
                 ignoreHTTPSErrors: true     ,
@@ -54,7 +54,7 @@ describe('ConfigResolver', () => {
             }
         });
 
-        assert.deepEqual(configResolver.getConfig(), {
+        assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: false,
                 ignoreHTTPSErrors: true,

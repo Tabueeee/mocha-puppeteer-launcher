@@ -19,14 +19,14 @@ describe('browserLauncher', () => {
         await browserLauncher.getPuppeteerLoadedPromise();
 
         assert.ok((<SinonSpy> puppeteerDouble.launch).called);
-        assert.deepEqual(browserLauncher.getBrowser(), browserFake);
+        assert.deepStrictEqual(browserLauncher.getBrowser(), browserFake);
     });
 
     it('no Promise returned, if browser was not started', async () => {
         let browserFake: TestDouble<Browser> = {};
         browserLauncher = getBrowserLauncherDouble(browserFake);
 
-        assert.deepEqual(browserLauncher.getPuppeteerLoadedPromise(), undefined);
+        assert.deepStrictEqual(browserLauncher.getPuppeteerLoadedPromise(), undefined);
     });
 
     it('throws if getBrowser was called, when browser was not started', async () => {
@@ -46,7 +46,7 @@ describe('browserLauncher', () => {
         browserLauncher = getBrowserLauncherDouble(browserFake);
         await browserLauncher.start(mplConfigFake);
 
-        assert.deepEqual(await browserLauncher.newPage(), {some: 'prop'});
+        assert.deepStrictEqual(await browserLauncher.newPage(), {some: 'prop'});
     });
 
     it('Page is created as expected, with pageOptions', async () => {
@@ -94,7 +94,7 @@ describe('browserLauncher', () => {
         await browserLauncher.start(mplConfigFake);
         await browserLauncher.newPage(emulateOptions);
 
-        assert.deepEqual(emulateOptionsCalledWith, emulateOptions.viewport);
+        assert.deepStrictEqual(emulateOptionsCalledWith, emulateOptions.viewport);
     });
 
     it('getBrowser throws exception after the browser was closed', async () => {

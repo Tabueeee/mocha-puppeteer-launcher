@@ -8,7 +8,7 @@ describe('JsonReader', () => {
 
         let parsedConfig: Partial<MplConfig> = jr.loadByPath(`${__dirname}/../common/mplconfigFake.json`);
 
-        assert.deepEqual(parsedConfig, {
+        assert.deepStrictEqual(parsedConfig, {
                 browserOptions: {
                     headless: true,
                     ignoreHTTPSErrors: true
