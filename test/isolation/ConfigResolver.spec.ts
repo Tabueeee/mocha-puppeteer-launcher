@@ -15,7 +15,6 @@ describe('ConfigResolver', () => {
         assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: true,
-                ignoreHTTPSErrors: true   ,
                 timeout: 30000
             },
             autoClose: true,
@@ -33,7 +32,6 @@ describe('ConfigResolver', () => {
         assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: true,
-                ignoreHTTPSErrors: true     ,
                 timeout: 30000
             },
             autoClose: false,
@@ -47,7 +45,6 @@ describe('ConfigResolver', () => {
                 return {
                     browserOptions: {
                         headless: false,
-                        ignoreHTTPSErrors: true  ,
                         timeout: 30000
                     }
                 };
@@ -57,7 +54,6 @@ describe('ConfigResolver', () => {
         assert.deepStrictEqual(configResolver.getConfig(), {
             browserOptions: {
                 headless: false,
-                ignoreHTTPSErrors: true,
                 timeout: 30000
             },
             autoClose: true,

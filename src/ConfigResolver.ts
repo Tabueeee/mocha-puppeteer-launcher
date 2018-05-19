@@ -13,7 +13,6 @@ export class ConfigResolver {
     private readonly defaultConfig: MplConfig = {
         browserOptions: {
             headless: true,
-            ignoreHTTPSErrors: true,
             timeout: 30000
         },
         autoClose: true,

@@ -6,13 +6,11 @@ import {browserLauncher, config, register} from '../src';
 describe('register-call', () => {
 
     before(() => {
-        // mplConfig.autoClose = false;
         config.autoClose = false;
         register();
     });
 
     after(async () => {
-        // mplConfig.autoClose = true;
         await browserLauncher.closeBrowser();
     });
 

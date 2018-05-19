@@ -57,7 +57,7 @@ Mocha-puppeteer-launcher can be configured by, creating a `mplconfig.json` file 
 - autoClose: disables the register script from closing the browser with mocha's after hook.
 - keepAlive: delay closing the browser for x ms, after tests execution is finished.
 
-Different config files can be loaded by passing the path to the test-call with `--mplconfig path`.
+Different config files can be loaded by passing the path to the test call with `--mplconfig path`.
 
 ````bash
 mocha --require mocha-puppeteer-launcher/register my/test/path/*.spec.js --mplconfig ./settings.json
@@ -68,7 +68,6 @@ Without a configuration file or missing properties the following default configu
 {
   "browserOptions": {
     "headless": true,
-    "ignoreHTTPSErrors": true,
     "timeout": 30000
   },
   "autoClose": true,
