@@ -7,6 +7,7 @@ describe('register-call', () => {
 
     before(() => {
         config.autoClose = false;
+        config.browserOptions.args = ['--no-sandbox'];
         register();
     });
 
