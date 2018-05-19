@@ -16,7 +16,7 @@ describe('ReferenceResolver', () => {
 
         }
 
-        assert.deepEqual(reference, someFake);
+        assert.deepStrictEqual(reference, someFake);
     });
 
     it('returns second reference', () => {
@@ -28,7 +28,7 @@ describe('ReferenceResolver', () => {
 
         }
 
-        assert.deepEqual(reference, someFake2);
+        assert.deepStrictEqual(reference, someFake2);
     });
 
     it('throws an expection if no reference is found', () => {

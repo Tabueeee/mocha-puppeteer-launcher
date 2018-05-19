@@ -25,5 +25,4 @@ export const register: () => void = (): void => {
 
     global['newPage'] = browserLauncher.newPage.bind(browserLauncher);
     global['closeBrowser'] = browserLauncher.closeBrowser.bind(browserLauncher);
-    // global['mplConfig'] = config;
 };

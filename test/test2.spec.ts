@@ -1,18 +1,17 @@
 import * as assert from 'assert';
 import {Page} from 'puppeteer';
-import {browserLauncher, config, register} from '../src';
+import {browserLauncher, config, register} from '../src/index';
 
 
 describe('register-call', () => {
 
-    before(() => {
-        // mplConfig.autoClose = false;
+    before(async () => {
         config.autoClose = false;
         register();
+        await browserLauncher.getPuppeteerLoadedPromise();
     });
 
     after(async () => {
-        // mplConfig.autoClose = true;
         await browserLauncher.closeBrowser();
     });
 

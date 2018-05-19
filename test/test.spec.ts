@@ -1,11 +1,13 @@
 import * as assert from 'assert';
 import {Page} from 'puppeteer';
+import {browserLauncher} from '../src';
 
 
 describe('register-require', () => {
 
-    before(() => {
+    before(async () => {
         require('../../register');
+        await browserLauncher.getPuppeteerLoadedPromise();
     });
 
     it('newPage', () => {

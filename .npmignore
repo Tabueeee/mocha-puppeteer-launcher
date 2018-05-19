@@ -144,3 +144,4 @@ build/test/
 tslint.json
 task/
 .travis.yml
+.coveralls.yml

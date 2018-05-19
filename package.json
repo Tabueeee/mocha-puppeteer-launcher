@@ -1,6 +1,6 @@
 {
   "name": "mocha-puppeteer-launcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "launch puppeteer without any setup code",
   "main": "build/src/index.js",
   "author": "Tobias Nießen",
@@ -11,6 +11,15 @@
   "engines": {
     "node": ">=6.4.0"
   },
+  "keywords": [
+    "mocha",
+    "puppeteer",
+    "launcher",
+    "testing",
+    "test",
+    "chrome",
+    "headless"
+  ],
   "types": "types/index.d.ts",
   "scripts": {
     "prebuild": "node_modules/.bin/tslint --project tsconfig-lint.json",
@@ -18,10 +27,10 @@
     "postbuild": "node task/copyTestFakes",
     "prebuild-dev": "npm run prebuild",
     "build-dev": "node_modules/.bin/tsc -p tsconfig.json --sourcemap",
-    "post-build-dev": "node task/copyTestFakes",
+    "postbuild-dev": "npm run postbuild",
     "pretest": "npm run build",
     "test": "node_modules/.bin/mocha --timeout 10000 build/test/**/*.spec.js",
-    "test-silent": "node_modules/.bin/mocha --timeout 10000 --require source-map-support/register build/test/isolation/*.spec.js > test.log",
+    "test-silent": "node_modules/.bin/mocha --timeout 10000 --require source-map-support/register build/test/isolation/*.spec.js",
     "precoverage": "npm run build-dev",
     "coverage": "node_modules/.bin/nyc --all --reporter=html npm run test-silent",
     "precoverage-travis": "npm run build-dev",

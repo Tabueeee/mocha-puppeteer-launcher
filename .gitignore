@@ -29,6 +29,7 @@ $RECYCLE.BIN/
 # User-specific stuff:
 .idea/sonarlint/
 .idea/**/workspace.xml
+.idea/StickySelectionHighlights.xml
 .idea/**/tasks.xml
 .idea/dictionaries
 
@@ -136,3 +137,4 @@ typings/
 
 
 build/
+.coveralls.yml
