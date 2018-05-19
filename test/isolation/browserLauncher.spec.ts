@@ -22,6 +22,28 @@ describe('browserLauncher', () => {
         assert.deepStrictEqual(browserLauncher.getBrowser(), browserFake);
     });
 
+    it('puppeteer xfxfxfx expected browserFake', async () => {
+        let p: Promise<void> = new Promise((resolve: () => void): void => {
+            setTimeout(
+                () => {
+                    resolve();
+                },
+                5000
+            );
+        });
+
+        let puppeteerDouble: TestDouble<PuppeteerModule> = {launch: (): Promise<void> => p};
+
+        browserLauncher = new BrowserLauncher(<PuppeteerModule> puppeteerDouble);
+
+        browserLauncher.start(mplConfigFake);
+        let p1 = browserLauncher.getPuppeteerLoadedPromise();
+        browserLauncher.start(mplConfigFake);
+        let p2 = browserLauncher.getPuppeteerLoadedPromise();
+
+        assert.deepStrictEqual(p1, p2);
+    });
+
     it('no Promise returned, if browser was not started', async () => {
         let browserFake: TestDouble<Browser> = {};
         browserLauncher = getBrowserLauncherDouble(browserFake);

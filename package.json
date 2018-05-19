@@ -30,7 +30,7 @@
     "postbuild-dev": "npm run postbuild",
     "pretest": "npm run build",
     "test": "node_modules/.bin/mocha --timeout 10000 build/test/**/*.spec.js",
-    "test-silent": "node_modules/.bin/mocha --timeout 10000 --require source-map-support/register build/test/**/*.spec.js",
+    "test-silent": "node_modules/.bin/mocha --timeout 10000 --require source-map-support/register build/test/isolation/*.spec.js",
     "precoverage": "npm run build-dev",
     "coverage": "node_modules/.bin/nyc --all --reporter=html npm run test-silent",
     "precoverage-travis": "npm run build-dev",
