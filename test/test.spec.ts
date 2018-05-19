@@ -1,12 +1,11 @@
 import * as assert from 'assert';
 import {Page} from 'puppeteer';
-import {browserLauncher, config} from '../src';
+import {browserLauncher} from '../src';
 
 
 describe('register-require', () => {
 
     before(async () => {
-        config.browserOptions.args = ['--no-sandbox'];
         require('../../register');
         await browserLauncher.getPuppeteerLoadedPromise();
     });

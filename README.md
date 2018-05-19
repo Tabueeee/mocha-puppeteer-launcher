@@ -80,7 +80,7 @@ Note
 ## Alternative API-Usage                  
 Mocha-puppeteer-launcher can also be used without exposing constants to the global namespace by using
 the exported constant `browseLauncher`. It's still possible to use a `mplconfig.json` file when using the browserLauncher directly.
-You can access a full config object with default settings overwritten by any settings specified in a `mplconfig.json` file. 
+You can access the exported config object with default settings overwritten by any settings specified in `mplconfig.json`. 
 
 ````js
 const mpl = require('mocha-puppeteer-launcher');

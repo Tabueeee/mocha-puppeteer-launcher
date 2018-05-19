@@ -22,7 +22,7 @@ describe('browserLauncher', () => {
         assert.deepStrictEqual(browserLauncher.getBrowser(), browserFake);
     });
 
-    it('puppeteer xfxfxfx expected browserFake', async () => {
+    it('browserLauncher does not call puppeteer twice', async () => {
         let p: Promise<void> = new Promise((resolve: () => void): void => {
             setTimeout(
                 () => {

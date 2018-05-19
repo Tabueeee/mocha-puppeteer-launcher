@@ -7,7 +7,6 @@ describe('register-call', () => {
 
     before(async () => {
         config.autoClose = false;
-        config.browserOptions.args = ['--no-sandbox'];
         register();
         await browserLauncher.getPuppeteerLoadedPromise();
     });
