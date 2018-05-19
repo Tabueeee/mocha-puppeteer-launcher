@@ -1,14 +1,15 @@
 import * as assert from 'assert';
 import {Page} from 'puppeteer';
-import {browserLauncher, config, register} from '../src';
+import {browserLauncher, config, register} from '../src/index';
 
 
 describe('register-call', () => {
 
-    before(() => {
+    before(async () => {
         config.autoClose = false;
         config.browserOptions.args = ['--no-sandbox'];
         register();
+        await browserLauncher.getPuppeteerLoadedPromise();
     });
 
     after(async () => {
